@@ -17,8 +17,10 @@ class SuperHeroAdapter(private val superHeroList:List<SuperHero>) : RecyclerView
         return SuperHeroViewHolder(layoutInflater.inflate(R.layout.item_superhero, parent, false))
     }
 
+    //este metodo pasa por cada item y llama a la funcion render()
     override fun onBindViewHolder(holder: SuperHeroViewHolder, position: Int) {
-
+        val item = superHeroList[position]
+        holder.render(item)
     }
 
     //devuelve la cantidad de items dentro de la lista
