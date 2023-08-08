@@ -8,10 +8,13 @@ import androidx.activity.ComponentActivity
 
 class MainActivity : ComponentActivity() {
     var tvRes:TextView?=null
+    var btnReset:Button?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         tvRes = findViewById(R.id.resultado)
+        btnReset = findViewById(R.id.bReset)
+
 
 
     }
@@ -19,10 +22,19 @@ class MainActivity : ComponentActivity() {
         var boton = view as Button
         var textoBoton = boton.text.toString()
         var concatenar = tvRes?.text.toString()+textoBoton
-        tvRes?.text = concatenar
+
+
+        tvRes?.text = quitarCerosIzquierda(concatenar)
+
     }
-    fun quitarCerosIzquierda(){
-        //falta por realizar
+
+
+    fun quitarCerosIzquierda(str:String):String{
+        var i=0
+        while (i<str.length && str[i]=='0')i++
+        val sb = StringBuffer(str)
+        sb.replace(0,i,"")
+        return sb.toString()
     }
 }
 
