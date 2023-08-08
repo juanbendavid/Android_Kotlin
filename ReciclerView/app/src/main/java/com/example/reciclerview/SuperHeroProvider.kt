@@ -14,8 +14,32 @@ class SuperHeroProvider {
                 "Marvel",
                 "Peter Parker",
                 "https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png"
-            )
+            ),
 
+            SuperHero(
+                "KotlinMan",
+                "JetBrains",
+                "Juan David",
+                "https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png"
+            ),
+            SuperHero(
+                "SpiderMan",
+                "Marvel",
+                "Peter Parker",
+                "https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png"
+            ),
+            SuperHero(
+                "KotlinMan",
+                "JetBrains",
+                "Juan David",
+                "https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png"
+            ),
+            SuperHero(
+                "SpiderMan",
+                "Marvel",
+                "Peter Parker",
+                "https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png"
+            )
         )
     }
 }
