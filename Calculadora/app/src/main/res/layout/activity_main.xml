@@ -6,20 +6,21 @@
     android:padding="15dp"
 
     >
-   <TextView
-       android:id="@+id/resultado"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:text="0"
-       android:textSize="50sp"
-       android:textAlignment="textEnd"
-       android:padding="10dp"
-       android:background="#d7d7d7"
-       android:height="110dp"
-       android:layout_marginBottom="10dp"
-       >
 
-   </TextView>
+    <TextView
+        android:id="@+id/resultado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:height="110dp"
+        android:autoSizeTextType="uniform"
+        android:background="#d7d7d7"
+        android:padding="10dp"
+        android:text="0"
+        android:textAlignment="textEnd"
+        android:textSize="50sp">
+
+    </TextView>
 
     <LinearLayout
         android:layout_width="match_parent"
