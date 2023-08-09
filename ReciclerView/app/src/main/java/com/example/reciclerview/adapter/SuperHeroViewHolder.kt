@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.bumptech.glide.Glide
 import com.example.reciclerview.R
 import com.example.reciclerview.SuperHero
 import org.w3c.dom.Text
@@ -22,5 +23,8 @@ class SuperHeroViewHolder(view:View) : ViewHolder(view){
         superHero.text = superHeroModel.superHero
         realName.text = superHeroModel.realName
         publisher.text = superHeroModel.publisher
+
+        //Glide inserta la imagen en el imageView
+        Glide.with(photo.context).load(superHeroModel.photo).into(photo)
     }
 }

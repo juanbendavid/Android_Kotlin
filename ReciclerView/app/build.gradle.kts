@@ -60,6 +60,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.recyclerview:recyclerview:1.3.1")
+    implementation ("com.github.bumptech.glide:glide:4.15.1")
     testImplementation("junit:junit:4.13.2")
     implementation("androidx.constraintlayout:constraintlayout:2.2.0-alpha07")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -68,4 +69,5 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
 }
