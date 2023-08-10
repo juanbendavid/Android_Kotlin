@@ -1,6 +1,7 @@
 package com.example.reciclerview
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +17,14 @@ class MainActivity : ComponentActivity() {
     private fun initRecyclerView(){
         val recyclerView = findViewById<RecyclerView>(R.id.recycler)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = SuperHeroAdapter(SuperHeroProvider.superHeroList)
+        recyclerView.adapter = SuperHeroAdapter(SuperHeroProvider.superHeroList) { superHero ->
+            onItemSelected(
+                superHero
+            )
+        }
+    }
+    fun onItemSelected(superHero: SuperHero){
+        Toast.makeText(this, superHero.superHero, Toast.LENGTH_SHORT).show()
     }
 }
 
