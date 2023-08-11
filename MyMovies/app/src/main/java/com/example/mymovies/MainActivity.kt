@@ -1,11 +1,13 @@
 package com.example.mymovies
 
-import Movie
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 
 import com.example.mymovies.databinding.ActivityMainBinding
+import com.example.mymovies.model.MovieDbClient
+import kotlin.concurrent.thread
 
 
 class MainActivity : ComponentActivity() {
@@ -28,6 +30,17 @@ class MainActivity : ComponentActivity() {
         ) {
             Toast.makeText(this@MainActivity, it.title, Toast.LENGTH_SHORT).show()
         }
+
+        thread {
+            val apiKey=getString(R.string.api_key)
+            val pupularMovies = MovieDbClient.service.listPopularMovies(apiKey)
+
+            val body = pupularMovies.execute().body()
+            if(body!=null)
+                Log.d("ojo", "Movie Count: ${body.results.size}")
+        }
+
+
     }
 }
 
