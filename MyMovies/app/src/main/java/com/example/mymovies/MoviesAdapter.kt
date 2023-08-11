@@ -5,8 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mymovies.databinding.ViewMovieItemBinding
+import com.example.mymovies.model.Movie
 
-class MoviesAdapter(private val movies: List<Movie>,
+class MoviesAdapter( var movies: List<Movie>,
                     private val movieClickedListener: (Movie)->Unit) :
     RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
 
@@ -32,7 +33,7 @@ class MoviesAdapter(private val movies: List<Movie>,
         fun bind(movie: Movie) {
             binding.title.text = movie.title
             //Glide inserta la imagen en el imageView
-            Glide.with(binding.cover.context).load(movie.cover).into(binding.cover)
+            Glide.with(binding.cover.context).load("https://image.tmdb.org/t/p/w185/" + movie.poster_path).into(binding.cover)
         }
     }
 

@@ -16,28 +16,28 @@ class MainActivity : ComponentActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.recycler.adapter = MoviesAdapter(
-            listOf(
-                Movie(
-                    "Title1",
-                    "https://media.revistagq.com/photos/64073419d8bd3a1a762bdf58/1:1/w_675,h_675,c_limit/por-que-linterna-verde-fracaso.jpg"
-                ),
-                Movie("Title2", "url3"),
-                Movie("Title3", "url3"),
-                Movie("Title4", "url4")
-
-            )
-        ) {
+        val moviesAdapter = MoviesAdapter(emptyList()) {
             Toast.makeText(this@MainActivity, it.title, Toast.LENGTH_SHORT).show()
         }
 
+        binding.recycler.adapter = moviesAdapter
+
+        //hilo secundario
         thread {
             val apiKey=getString(R.string.api_key)
             val pupularMovies = MovieDbClient.service.listPopularMovies(apiKey)
-
             val body = pupularMovies.execute().body()
-            if(body!=null)
-                Log.d("ojo", "Movie Count: ${body.results.size}")
+
+            //aqui se ejecuta el hilo principal, para acatualizar los datos de peliculas
+            runOnUiThread{
+                if(body!=null)
+                    //Log.d("ojo", "Movie Count: ${body.results.size}")
+                    moviesAdapter.movies = body.results
+                    moviesAdapter.notifyDataSetChanged() // indica que se actualiza datos al adapter
+
+            }
+
+
         }
 
 
