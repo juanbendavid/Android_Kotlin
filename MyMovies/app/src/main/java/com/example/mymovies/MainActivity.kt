@@ -4,9 +4,13 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.lifecycle.lifecycleScope
 
 import com.example.mymovies.databinding.ActivityMainBinding
 import com.example.mymovies.model.MovieDbClient
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlin.concurrent.thread
 
 
@@ -22,23 +26,21 @@ class MainActivity : ComponentActivity() {
 
         binding.recycler.adapter = moviesAdapter
 
-        //hilo secundario
-        thread {
-            val apiKey=getString(R.string.api_key)
-            val pupularMovies = MovieDbClient.service.listPopularMovies(apiKey)
-            val body = pupularMovies.execute().body()
+        //lifecyclescope utiliza el hilo principal, las peticiones al servidor no se pueden hacer en dicho hilo
+       lifecycleScope.launch{
+           val apiKey = getString(R.string.api_key)
+           val popularMovies = MovieDbClient.service.listPopularMovies(apiKey)
 
-            //aqui se ejecuta el hilo principal, para acatualizar los datos de peliculas
-            runOnUiThread{
-                if(body!=null)
-                    //Log.d("ojo", "Movie Count: ${body.results.size}")
-                    moviesAdapter.movies = body.results
-                    moviesAdapter.notifyDataSetChanged() // indica que se actualiza datos al adapter
+           //Funciones de Suspension, la corrutina se queda suspendida hasta acabar la funcion
+           //y el hilo principal no se queda bloqueado, sigue ejecutando lo que necesite
+           //fuera el hilo principal, peticion el servidor con IO
 
-            }
+           //Log.d("ojo", "Movie Count: ${body.results.size}")
+           moviesAdapter.movies = popularMovies.results
+           moviesAdapter.notifyDataSetChanged() // indica que se actualiza datos al adapter
+       }
 
 
-        }
 
 
     }
