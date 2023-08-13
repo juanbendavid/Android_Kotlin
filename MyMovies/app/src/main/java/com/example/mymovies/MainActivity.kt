@@ -7,6 +7,7 @@ import androidx.activity.ComponentActivity
 import androidx.lifecycle.lifecycleScope
 
 import com.example.mymovies.databinding.ActivityMainBinding
+import com.example.mymovies.model.Movie
 import com.example.mymovies.model.MovieDbClient
 import kotlinx.coroutines.launch
 
@@ -18,14 +19,7 @@ class MainActivity : ComponentActivity() {
         setContentView(binding.root)
 
         val moviesAdapter = MoviesAdapter(emptyList()) {
-            Toast.makeText(this@MainActivity, it.title, Toast.LENGTH_SHORT).show()
-            try {
-                val intent = Intent(this, DetailActivity::class.java)
-                startActivity(intent)
-            }catch (e:Exception){
-                Toast.makeText(this@MainActivity, e.toString(), Toast.LENGTH_SHORT).show()
-            }
-
+            navigateTo(it)
         }
 
         binding.recycler.adapter = moviesAdapter
@@ -47,6 +41,12 @@ class MainActivity : ComponentActivity() {
 
 
 
+    }
+
+    private fun navigateTo(it: Movie) {
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra(DetailActivity.EXTRA_TITLE,it.title)
+        startActivity(intent)
     }
 }
 

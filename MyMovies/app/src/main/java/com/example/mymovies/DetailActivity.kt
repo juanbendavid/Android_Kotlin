@@ -2,10 +2,18 @@ package com.example.mymovies
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.mymovies.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
+    companion object{
+        const val EXTRA_TITLE = "DetailActivity::title"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail)
+        val binding = ActivityDetailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val title = intent.getStringExtra(EXTRA_TITLE)
+        binding.title.text = title
     }
 }
