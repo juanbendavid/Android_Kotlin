@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity() {
 
     private fun navigateTo(it: Movie) {
         val intent = Intent(this, DetailActivity::class.java)
-        intent.putExtra(DetailActivity.EXTRA_TITLE,it.title)
+        intent.putExtra(DetailActivity.EXTRA_MOVIE,it)
         startActivity(intent)
     }
 }
