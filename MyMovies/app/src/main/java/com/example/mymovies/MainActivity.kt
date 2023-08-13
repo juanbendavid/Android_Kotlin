@@ -1,17 +1,14 @@
 package com.example.mymovies
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.lifecycleScope
 
 import com.example.mymovies.databinding.ActivityMainBinding
 import com.example.mymovies.model.MovieDbClient
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import kotlin.concurrent.thread
 
 
 class MainActivity : ComponentActivity() {
@@ -22,6 +19,13 @@ class MainActivity : ComponentActivity() {
 
         val moviesAdapter = MoviesAdapter(emptyList()) {
             Toast.makeText(this@MainActivity, it.title, Toast.LENGTH_SHORT).show()
+            try {
+                val intent = Intent(this, DetailActivity::class.java)
+                startActivity(intent)
+            }catch (e:Exception){
+                Toast.makeText(this@MainActivity, e.toString(), Toast.LENGTH_SHORT).show()
+            }
+
         }
 
         binding.recycler.adapter = moviesAdapter
