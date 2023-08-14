@@ -15,11 +15,31 @@
         android:src="@drawable/ic_launcher_foreground"
         tools:src="@tools:sample/avatars" />
 
+
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/summary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Movie"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
-    
+        android:text="Resumen de la pelicula"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:padding="16dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:clipToPadding="true"
+        >
+
+
+        <TextView
+            android:id="@+id/detailinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="datos de la pelicula"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            tools:text="@tools:sample/lorem/random" />
+    </ScrollView>
+
+
 </LinearLayout>
