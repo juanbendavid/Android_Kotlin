@@ -10,6 +10,7 @@
         android:layout_height="200dp"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_foreground"
+        android:padding="2dp"
 
         />
 
@@ -17,8 +18,13 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Movie Item"
+        android:background="@color/design_default_color_primary"
+        android:ellipsize="end"
         android:gravity="center"
+        android:lines="1"
         android:padding="16dp"
-        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+        android:text="Movie Item"
+        android:textAppearance="@android:style/TextAppearance.Material.Body2"
+
+        android:textColor="@color/design_default_color_on_primary" />
 </LinearLayout>
