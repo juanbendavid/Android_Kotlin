@@ -5,6 +5,8 @@ App en proceso...
 
 ## Aplicaciones
 - Uses Permission Internet
+- SerializedName
+- 
 
 
 ## Librerias
