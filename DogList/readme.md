@@ -4,7 +4,12 @@ App en proceso...
 
 
 ## Aplicaciones
-- Uses Permission 
+- Uses Permission Internet
 
 
-## Imagenes Ilustrativas
+## Librerias
+- View Binding
+- Picasso
+- Retrofit 2
+- Retrofit 2 Converter Gson
+- Corrutinas
