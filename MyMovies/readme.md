@@ -14,7 +14,10 @@ App solo de retroalimentación y practicas de conceptos básicos.
 
 ## Imagenes Ilustrativas
 
-![WhatsApp Image 2023-08-14 at 22 47 40](https://github.com/juanbendavid/Android_Kotlin/assets/56058007/fd75aceb-d0ad-4fcb-9e16-e80b91434587)
+![WhatsApp Image 2023-08-18 at 14 28 05](https://github.com/juanbendavid/Android_Kotlin/assets/56058007/f962e28b-ff4f-44d6-bd92-71a4134575a9)
+![WhatsApp Image 2023-08-18 at 14 28 06](https://github.com/juanbendavid/Android_Kotlin/assets/56058007/7d68af91-ef0c-4e4b-8dd4-8408c25937ae)
 
 
-![WhatsApp Image 2023-08-14 at 22 47 40 (1)](https://github.com/juanbendavid/Android_Kotlin/assets/56058007/a4835d8a-dcf2-45fc-894e-72883fa78e6f)
+
+
+
