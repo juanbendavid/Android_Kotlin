@@ -2,6 +2,7 @@ package com.example.mymovies
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.lifecycleScope
@@ -17,7 +18,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        
+        hideNavegationBarBottom()
         val moviesAdapter = MoviesAdapter(emptyList()) {
             navigateTo(it)
         }
@@ -41,6 +43,16 @@ class MainActivity : ComponentActivity() {
 
 
 
+    }
+
+    private fun hideNavegationBarBottom() {
+        window.decorView.apply {
+            // Hide both the navigation bar and the status bar.
+            // SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
+            // a general rule, you should design your app to hide the status bar whenever you
+            // hide the navigation bar.
+            systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
+        }
     }
 
     private fun navigateTo(it: Movie) {
