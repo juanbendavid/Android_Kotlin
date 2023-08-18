@@ -7,7 +7,7 @@
     <ImageView
         android:id="@+id/cover"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_foreground"
         />
@@ -20,8 +20,9 @@
         android:ellipsize="end"
         android:gravity="center"
         android:lines="1"
-        android:padding="16dp"
+        android:padding="7dp"
         android:text="Movie Item"
-        android:textAppearance="@android:style/TextAppearance.Material.Body2"
+        android:textSize="15sp"
+        android:textStyle="bold"
         android:textColor="@color/design_default_color_on_primary" />
 </LinearLayout>

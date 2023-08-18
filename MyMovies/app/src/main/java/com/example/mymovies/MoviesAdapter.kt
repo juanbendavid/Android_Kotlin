@@ -33,7 +33,7 @@ class MoviesAdapter( var movies: List<Movie>,
         fun bind(movie: Movie) {
             binding.title.text = movie.title
             //Glide inserta la imagen en el imageView
-            Glide.with(binding.cover.context).load("https://image.tmdb.org/t/p/w185/" + movie.poster_path).into(binding.cover)
+            Glide.with(binding.cover.context).load("https://image.tmdb.org/t/p/w200/" + movie.poster_path).into(binding.cover)
         }
     }
 
