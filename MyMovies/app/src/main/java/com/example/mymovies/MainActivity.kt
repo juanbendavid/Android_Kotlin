@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 
 import com.example.mymovies.databinding.ActivityMainBinding
@@ -19,12 +20,14 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        
+
+        binding.progressCircular.isVisible = true
         val moviesAdapter = MoviesAdapter(emptyList()) {
             navigateTo(it)
         }
 
         binding.recycler.adapter = moviesAdapter
+
 
         //lifecyclescope utiliza el hilo principal, las peticiones al servidor no se pueden hacer en dicho hilo
        lifecycleScope.launch{
@@ -38,7 +41,9 @@ class MainActivity : AppCompatActivity(){
            //Log.d("ojo", "Movie Count: ${body.results.size}")
            moviesAdapter.movies = popularMovies.results
            moviesAdapter.notifyDataSetChanged() // indica que se actualiza datos al adapter
+           binding.progressCircular.isVisible = false
        }
+
 
 
 
