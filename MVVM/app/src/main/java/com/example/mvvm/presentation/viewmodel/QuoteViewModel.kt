@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mvvm.data.model.QuoteProvider
 import com.example.mvvm.domain.GetQuotesUseCase
+import com.example.mvvm.domain.GetRandomQuoteUseCase
 import kotlinx.coroutines.launch
 
 class QuoteViewModel : ViewModel() {
@@ -14,6 +15,7 @@ class QuoteViewModel : ViewModel() {
 
 
     var getQuotesUseCase = GetQuotesUseCase()
+    var getRandomQuoteUseCase = GetRandomQuoteUseCase()
 
     fun onCreate() {
         isLoading.postValue(true)
@@ -27,8 +29,12 @@ class QuoteViewModel : ViewModel() {
     }
 
     fun randomQuote() {
-        //val currentQuote = QuoteProvider.random()
-        //quoteModel.postValue(currentQuote)
+        isLoading.postValue(true)
+        val quote = getRandomQuoteUseCase()
+        if(quote!=null){
+            quoteModel.postValue(quote!!)
+        }
+        isLoading.postValue(false)
     }
 
 
