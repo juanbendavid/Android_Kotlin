@@ -1,4 +1,4 @@
-package com.example.mvvm.view
+package com.example.mvvm.presentation.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.example.mvvm.databinding.ActivityMainBinding
 import com.example.mvvm.ui.theme.MVVMTheme
-import com.example.mvvm.viewmodel.QuoteViewModel
+import com.example.mvvm.presentation.viewmodel.QuoteViewModel
 
 
 class MainActivity : ComponentActivity() {
@@ -17,6 +17,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        quoteViewModel.onCreate()
 
         quoteViewModel.quoteModel.observe(this, Observer { currentQuote ->
             binding.tvQuote.text = currentQuote.quote
@@ -28,4 +30,5 @@ class MainActivity : ComponentActivity() {
     }
 
 }
+
 
